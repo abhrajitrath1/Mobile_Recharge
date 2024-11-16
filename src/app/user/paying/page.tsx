@@ -3,9 +3,9 @@
 import { Loader2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
-export default function Component() {
+function Component() {
   const searchParams = useSearchParams();
   const amount = searchParams.get("amount");
   const offer = searchParams.get("offer");
@@ -65,5 +65,13 @@ export default function Component() {
         </Card>
       )}
     </div>
+  );
+}
+
+export default function Paying() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Component />
+    </Suspense>
   );
 }

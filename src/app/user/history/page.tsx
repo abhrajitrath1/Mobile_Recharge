@@ -26,7 +26,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 export default function History() {
-  const [selectedRecharge, setSelectedRecharge] = useState(null);
+  const [selectedRecharge, setSelectedRecharge] = useState<any>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [rechargeHistory, setRechargeHistory] = useState<any>([]);
   const [isloading, setisloading] = useState<boolean>(true);

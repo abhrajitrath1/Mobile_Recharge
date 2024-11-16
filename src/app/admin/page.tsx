@@ -229,7 +229,7 @@ export default function AdminDashboard() {
 
 interface PlanFormProps {
   initialData?: Plan;
-  onSubmit: (plan: Omit<Plan, "id">) => void;
+  onSubmit: any;
   onCancel: () => void;
 }
 
