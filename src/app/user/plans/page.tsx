@@ -201,7 +201,7 @@ export default function Plans() {
               <div className="w-full mx-auto">
                 <div className="text-center bg-gradient-to-r from-pink-500 to-yellow-500 text-white rounded-lg py-3">
                   <div className="text-xl font-bold">
-                    You've Got an Offer by Referral!
+                    {`You've Got an Offer by Referral!`}
                   </div>
                   <div className="text-white">
                     Claim it by selecting a pack below for FREE!
