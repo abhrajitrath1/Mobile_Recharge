@@ -2,13 +2,10 @@
 
 import { Loader2 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 
 function Component() {
-  const searchParams = useSearchParams();
-  const amount = searchParams.get("amount");
-  const offer = searchParams.get("offer");
   const [success, setSuccess] = useState<boolean>(false);
 
   const router = useRouter();
@@ -33,14 +30,6 @@ function Component() {
               Payment Success!
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex flex-col items-center space-y-4">
-            {offer && (
-              <div className="text-2xl font-bold text-green-600">Free</div>
-            )}
-            {!offer && amount && (
-              <div className="text-2xl font-bold text-gray-600">₹{amount}</div>
-            )}
-          </CardContent>
         </Card>
       ) : (
         <Card className="w-full max-w-md">
@@ -55,12 +44,6 @@ function Component() {
               Please wait while we process your payment. This may take a few
               moments.
             </p>
-            {offer && (
-              <div className="text-2xl font-bold text-green-600">Free</div>
-            )}
-            {!offer && amount && (
-              <div className="text-2xl font-bold text-gray-600">₹{amount}</div>
-            )}
           </CardContent>
         </Card>
       )}
