@@ -1,10 +1,9 @@
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import retriveUser from "@/lib/retriveUser";
 import { History } from "@/models/history";
 import { Plan } from "@/models/plan";
 
-export async function GET(req: NextApiRequest) {
+export async function GET(req: NextRequest) {
   try {
     const userData = await retriveUser();
 
