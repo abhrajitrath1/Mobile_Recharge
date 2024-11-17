@@ -47,6 +47,7 @@ export default function Plans() {
   const [phone, setPhone] = useState<string | null>(null);
   const [offer, setOffer] = useState<boolean>(false);
   const [isloading, setisloading] = useState<boolean>(true);
+  const [booking, setBooking] = useState<boolean>(false);
 
   const router = useRouter();
 
@@ -83,6 +84,7 @@ export default function Plans() {
   }, []);
 
   async function handlePay() {
+    setBooking(true);
     try {
       if (!phone) {
         throw new Error("Enter Phone No.");
@@ -99,6 +101,7 @@ export default function Plans() {
       );
     } catch (error: any) {
       console.log(error);
+      setBooking(false);
     }
   }
 
@@ -365,6 +368,7 @@ export default function Plans() {
                                     type="submit"
                                     className="bg-blue-600 hover:bg-blue-700"
                                     onClick={handlePay}
+                                    disabled={booking}
                                   >
                                     {offer
                                       ? "Claim for Free"
